@@ -26,13 +26,19 @@ $(document).ready(function () {
         $('body').toggleClass('overflowNone')
     });
 
+    $('.navbar-nav .nav-item .nav-link').click(function(){
+        $('.hamburger').removeClass('active');
+        $('.data-contain').removeClass('active-nav');
+        $('body').removeClass('overflowNone')
+    });
+
     $('.owl-partners').owlCarousel({
         rtl: true,
         loop:true,
         margin: 20,
         nav:false,
         dots: true,
-        autoplay: true,
+        // autoplay: true,
         touchDrag  : true,
 		mouseDrag  : true,
 		autoWidth: false,
@@ -56,4 +62,6 @@ $(document).ready(function () {
             }
         }
     });
+
+    $('[data-toggle="tooltip"]').tooltip();
 });
