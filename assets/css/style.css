@@ -1295,7 +1295,7 @@ header .contain p {
           margin-inline-end: 0px;
 }
 .services .nav li a {
-  width: 120px;
+  width: 140px;
   height: 40px;
   outline: 2px solid var(--dark-blue) !important;
   border: 0px;
