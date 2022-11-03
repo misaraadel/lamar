@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="assets/css/lib/owl.theme.default.css">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
-    <nav class="navbar">
+  <body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <nav class="navbar" id="navbar">
       <div class="container">
         <div class="contain">
           <div class="hamburger">
@@ -916,7 +916,8 @@
               <img src="assets/images/logo_icon.png" loading="lazy" alt="" />
 
               <p>
-                لقد كان اول ظهور لشركة ياراسوفت ( حاليا ) بمسمى بي سي مكة وذلك فى عام 1992 كمؤسسة فردية تعنى بإنتاج برامج متوسطة تجارية
+                لقد كان اول ظهور لمؤسسة لامار السعودية لتقنية نظم المعلومات - ياراسوفت ( حاليا)
+                بمسمى بي سي مكة وذلك فى عام 1992 كمؤسسة فردية تعنى بإنتاج برامج متوسطة تجارية
               </p>
             </div>
           </div>
@@ -924,7 +925,7 @@
           <div class="col-lg-7 col-12">
             <div class="social-contact">
               <h1>
-                تواصل معانا
+                تواصل معنا
               </h1>
 
               <p>
@@ -999,5 +1000,24 @@
             });
         });
     </script>
+
+    <!-- <script type="text/javascript">
+      const navLi = document.querySelectorAll('nav ul li a');
+      const sections = document.querySelectorAll('section');
+
+      window.addEventListener('scroll', () => {
+          let current = '';
+          sections.forEach(section => {
+              let sectionTop = section.offsetTop;
+              if(scrollY >= sectionTop) {
+                  current = section.getAttribute('id');
+              }
+          });
+          navLi.forEach(li => {
+              li.classList.remove('active');
+              document.querySelector('nav ul li a[href*= '+ current +']').classList.add('active');
+          })
+      });
+    </script> -->
   </body>
 </html>

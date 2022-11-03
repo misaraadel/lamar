@@ -41,6 +41,11 @@
   background: #169ec5;
 }
 
+button {
+  outline: none;
+  border: 0px;
+}
+
 .overflowNone {
   overflow: hidden;
 }
