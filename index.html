@@ -823,38 +823,38 @@
 
           <div class="row">
             <div class="col-lg-6 col-12 mb-4">
-              <form action="" onsubmit="sendEmail()" class="form-contain">
+              <form id="mailing-form" action="/mailer.php" method="post" class="form-contain">
                 <div class="row">
                   <div class="col-lg-6 col-12">
                     <div class="form-group">
-                      <input type="text" id="name" class="form-control" placeholder="الإسم" />
+                      <input required type="text" id="name" name="name" class="form-control" placeholder="الإسم" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 col-12">
                     <div class="form-group">
-                      <input type="text" id="phone" class="form-control" placeholder="رقم الجوال" />
+                      <input required type="tel" id="phone" name="phone" class="form-control" placeholder="رقم الجوال" />
                     </div>
                   </div>
 
                   <div class="col-12">
                     <div class="form-group">
-                      <input type="text" id="email" class="form-control" placeholder="البريد الإلكتروني" />
+                      <input required type="email" id="email" name="email" class="form-control" placeholder="البريد الإلكتروني" />
                     </div>
                   </div>
 
                   <div class="col-12">
                     <div class="form-group text-area">
-                      <textarea name="" class="form-control" placeholder="محتوي الرسالة" id="message" cols="30" rows="10"></textarea>
+                      <textarea required minlength="10" name="message" class="form-control" placeholder="محتوي الرسالة" id="message" cols="30" rows="10"></textarea>
                     </div>
                   </div>
 
                   <div class="col-12">
-                    <a href="" class="custom-btn">
+                    <button type="submit" class="custom-btn">
                       <span>
                         إرسال
                       </span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </form>
@@ -975,25 +975,29 @@
     <script src="assets/js/lib/bootstrap.js"></script>
     <script src="assets/js/lib/owl.carousel.min.js"></script>
     <script src="assets/js/lib/wow.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="assets/js/main.js"></script>
-    <!-- <script type="text/javascript">
-      function sendEmail() {
-        Email.send({
-          Host: "smtp.gmail.com",
-          Username: "misaraadel@gmail.com",
-          Password: "@Fa4el155199701007425819",
-          To: 'misaraadel@gmail.com',
-          From: document.getElementById("email").value,
-          Subject: "subject",
-          Body: "hello my name is" + document.getElementById("name").value + "<br />" + "my phone number is" + document.getElementById("phone").value + "<br />" + "my email address is" + document.getElementById("email").value + "<br />" + "message is" + document.getElementById("message").value + ".",
-        })
-        .then(function (message) {
-          alert("mail sent successfully")
-        }).catch(function (error) {
-          alert("error sending mail")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#mailing-form").submit(function (e) {
+                e.preventDefault();
+
+                const form = $(this);
+                const actionUrl = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: actionUrl,
+                    data: form.serialize(),
+                    success: function (data) {
+                        alert('تم ارسال الرسالة بنجاح شكرا لكم');
+                        $('#mailing-form').trigger("reset");
+                    },
+                    error: function () {
+                      alert("حدث خطأ اثناء ارسال الرسالة، برجاء اعادة المحاولة");
+                    },
+                });
+            });
         });
-      }
-    </script> -->
+    </script>
   </body>
 </html>
