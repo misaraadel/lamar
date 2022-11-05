@@ -10,15 +10,15 @@ require './PHPMailer/src/SMTP.php';
 // Instantiation and passing [ICODE]true[/ICODE] enables exceptions
 $mail = new PHPMailer(true);
 
-
-$data = [
-    'name' => $_POST['name'],
-    'email' => $_POST['email'],
-    'phone' => $_POST['phone'],
-    'message' => $_POST['message'],
-];
-
 try {
+    // Sending Data
+    $data = [
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'phone' => $_POST['phone'],
+        'message' => $_POST['message'],
+    ];
+
     //Server settings
     $mail->SMTPDebug = 0; // Enable verbose debug output
     $mail->isSMTP(); // Set mailer to use SMTP
@@ -54,9 +54,10 @@ try {
     echo 'Message has been sent';
     http_response_code(200);
 } catch (Exception $e) {
-//    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+ //  echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo "Failed to Send Message";
     http_response_code(500);
 }
 
-header("Location: https://lamaryarasoft.com");
-die();
+// header("Location: https://lamaryarasoft.com");
+// die();
